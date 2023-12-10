@@ -40,50 +40,87 @@
 
 //   console.log(studentObjectstArray[3]);
 
-  // Second 
-//   function student(firstName, lastName) {
-//     this.firstName = firstName;
-//     this.lastName = lastName;
-//     this.studentGrades = [];
-//     this.insertNewGrade = function (newGrade) {
-//       this.studentGrades.push(newGrade);
-//     };
-//     this.computeAverageGrade = function () {
-//       let totalScore = 0;
-//       for (let i in this.studentGrades) {
-//         totalScore += this.studentGrades[i];
-//       }
-//       return totalScore / this.studentGrades.length;
-//     };
-//   }
+  // Second using constructor function
+  // function student(firstName, lastName) {
+  //   this.firstName = firstName;
+  //   this.lastName = lastName;
+  //   this.studentGrades = [];
+  //   this.insertNewGrade = function (newGrade) {
+  //     this.studentGrades.push(newGrade);
+  //   };
+  //   this.computeAverageGrade = function () {
+  //     let totalScore = 0;
+  //     for (let i in this.studentGrades) {
+  //       totalScore += this.studentGrades[i];
+  //     }
+  //     return totalScore / this.studentGrades.length;
+  //   };
+  // }
   
-//   const std1 = new student("Yonatan", "Embiza");
-//   const std2 = new student("Samuel", "Embiza");
-//   const std3 = new student("Daniel", "Semu");
-//   const std4 = new student("Yisak", "Muller");
+  // const std1 = new student("Yonatan", "Embiza");
+  // const std2 = new student("Samuel", "Embiza");
+  // const std3 = new student("Daniel", "Semu");
+  // const std4 = new student("Yisak", "Muller");
   
-//   std1.insertNewGrade(100);
-//   std2.insertNewGrade(95);
-//   std3.insertNewGrade(92);
-//   std4.insertNewGrade(90);
+  // std1.insertNewGrade(100);
+  // std2.insertNewGrade(95);
+  // std3.insertNewGrade(92);
+  // std4.insertNewGrade(90);
+  // std1.insertNewGrade(34);
+  // std2.insertNewGrade(67);
+  // std3.insertNewGrade(78);
+  // std4.insertNewGrade(65);
+  // std1.insertNewGrade(89);
+  // std2.insertNewGrade(99);
+  // std3.insertNewGrade(94);
+  // std4.insertNewGrade(65);
   
-//   const studentsArray = [std1, std2, std3, std4];
-//   console.log(studentsArray);
+  // const studentsArray = [std1, std2, std3, std4];
+  // console.log(studentsArray);
+  // console.log(std1.computeAverageGrade())
+
+  let student = function() {
+    firstName = "";
+    lastName = "";
+    this.studentGrades;
+    function insertGrade(newGrade) {
+        this.studentGrades.push(newGrade);
+    };
+    function computeAverageGrade() {
+        let total = 0;
+        for(let i in this.studentGrades){
+            total += this.studentGrades[i];
+        }
+        return total/this.studentGrades.length;
+    };
+
+  }
+  let std = student;
+  std.firstName = "Yonatan"; 
+  std.lastName = "Embiza"; 
+  console.log(std)
+  std.insertGrade(98);
+  
+  // std.studentGrades.push(98);
+  // std.studentGrades.push(67);
+  // std.studentGrades.push(45);
 
 // Third 
 // Adding a sorting
-Array.prototype.mySort = function() {
-    for (let i = 0; i < this.length - 1; i++) {
-      for (let j = i + 1; j < this.length; j++) {
-        if (this[i] > this[j]) {
-            // swaping
-            const temp = this[i];
-            this[i] = this[j];
-            this[j] = temp;
-        }
-      }
-    }
-  };
+
+// Array.prototype.mySort = function() {
+//     for (let i = 0; i < this.length - 1; i++) {
+//       for (let j = i + 1; j < this.length; j++) {
+//         if (this[i] > this[j]) {
+
+//             // swaping
+//             const temp = this[i];
+//             this[i] = this[j];
+//             this[j] = temp;
+//         }
+//       }
+//     }
+//   };
 
   // Forth
 
@@ -94,16 +131,10 @@ Array.prototype.mySort = function() {
         this.name = name;
         this.speed = speed;
     }
-    get getName(){
-      return this.name;
-    }
-    get getSpeed(){
-      return this.speed;
-    }
-    run(speed){
-      this.speed += speed;
-    }
-    static compareBySpeed(a1, a2) {
+    get getName() { return this.name; }
+    get getSpeed(){ return this.speed; }
+    run(speed){ this.speed += speed; }
+    static compareBySpeed(a1, a2) { 
       if (a1.speed > a2.speed) {
         return 1;
       } else if (a1.speed < a2.speed){
